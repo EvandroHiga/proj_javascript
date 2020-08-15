@@ -62,6 +62,16 @@ th{
 	background-color: lightcoral;
 }
 
+.alert-insert-error{
+	color: #a94442;
+	background-color: #f2dede;
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	border-color: #ebccd1;
+}
+
 .fade-out-effect{
 	opacity: 0;
 	transition: 0.2s;
@@ -70,7 +80,8 @@ th{
 .no-show-filter{
 	display: none;
 }
-/******************** form Adicionar Novo Paciente ****************************/
+
+/************ form ************/
 section h2{
 	font-size: 2em;
 	display: block;
@@ -126,4 +137,4 @@ button:active{
 	margin-top:0px;
 	border: 0;
 }
-/******************************************************************************/
+/******************************/
