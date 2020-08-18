@@ -77,7 +77,7 @@ function validarPaciente(peso, altura, gordura){
     return_msg += "Altura invalida";
   }
 
-  if(!(gordura >= 0 && gordura <= 100 )){
+  if(!(gordura > 0 && gordura <= 100 )){
     if(return_msg.length > 0){
       return_msg += " / ";
     }
