@@ -8,5 +8,6 @@
 > As linguagens HTML, CSS e javascript escritas no editor Atom.
 
 ### Como usar
-- `git clone --branch general_fixes https://github.com/EvandroHiga/proj_javascript.git`.
-- abra o arquivo index.html.
+> `git clone --branch general_fixes https://github.com/EvandroHiga/proj_javascript.git`;
+
+> Abra o arquivo index.html.
