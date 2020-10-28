@@ -1,10 +1,6 @@
-var botaoAdicionarPaciente = document.querySelector("#adicionar-paciente");
-botaoAdicionarPaciente.addEventListener("click", adicionaPacienteForm);
+function func_adicionarPaciente(){
+  event.preventDefault(); // Previne o reload da pagina
 
-function adicionaPacienteForm(){
-  event.preventDefault();
-
-  // Pegando os dados do form
   var form = document.getElementById("formAdicionaPaciente");
 
   var nome = form.nome.value;
@@ -12,17 +8,23 @@ function adicionaPacienteForm(){
   var altura = form.altura.value;
   var gordura = form.gordura.value;
 
-  adicionaPacienteTabela(nome, peso, altura, gordura);
+  var return_validaPaciente = validarPaciente(peso, altura, gordura);
 
-  formAdicionaPaciente.reset();
+  if(return_validaPaciente.length > 0){
+    document.getElementById("alertErrorInsert").innerHTML = return_validaPaciente;
+    document.getElementById("alertErrorInsert").classList.remove("no-show-filter");
+  } else {
+    document.getElementById("alertErrorInsert").classList.add("no-show-filter");
+    adicionaPacienteTabela(nome, peso, altura, gordura);
+    formAdicionaPaciente.reset();
+  }
 }
 
-function adicionaPacientesJsonObj(paciente){
-  adicionaPacienteTabela(paciente.nome, paciente.peso, paciente.altura, paciente.gordura);
-}
-
+//
+// "append" o novo paciente na tabela
+//
 function adicionaPacienteTabela(nome, peso, altura, gordura){
-  // Criando novos <td> com os dados do form
+  // Criando os <td> com os dados do form
   var nomeNovoPaciente = document.createElement("td");
   nomeNovoPaciente.classList.add("info-nome");
   nomeNovoPaciente.textContent = nome;
@@ -41,22 +43,11 @@ function adicionaPacienteTabela(nome, peso, altura, gordura){
 
   var imcNovoPaciente = document.createElement("td");
   imcNovoPaciente.classList.add("info-imc");
-
-  if(!validaPeso(peso)){
-    imcNovoPaciente.textContent = "Peso inválido";
-  } else if(!validaAltura(altura)){
-    imcNovoPaciente.textContent = "Altura inválida";
-  } else {
-    imcNovoPaciente.textContent = calcularImc(peso, altura);
-  }
+  imcNovoPaciente.textContent = calcularImc(peso, altura);
 
   // Inserindo os <td> dentro do <tr>
   var novoPaciente = document.createElement("tr");
   novoPaciente.classList.add("paciente");
-
-  if(!validaPeso(peso) || !validaAltura(altura)){
-    novoPaciente.classList.add("paciente-invalido");
-  }
 
   novoPaciente.appendChild(nomeNovoPaciente);
   novoPaciente.appendChild(pesoNovoPaciente);
@@ -67,4 +58,39 @@ function adicionaPacienteTabela(nome, peso, altura, gordura){
   // Inserindo o <tr> dentro do <tbody>
   var tabelaPacientes = document.querySelector("#tabela-pacientes");
   tabelaPacientes.appendChild(novoPaciente);
+}
+
+//
+// valida os dados do paciente
+//
+function validarPaciente(peso, altura, gordura){
+  var return_msg = "";
+
+  if(!(peso > 0 && peso < 1000)){
+    return_msg = "Peso invalido";
+  }
+
+  if(!(altura > 0 && altura < 3.00)){
+    if(return_msg.length > 0){
+      return_msg += " / ";
+    }
+    return_msg += "Altura invalida";
+  }
+
+  if(!(gordura > 0 && gordura <= 100 )){
+    if(return_msg.length > 0){
+      return_msg += " / ";
+    }
+    return_msg += "Gord. Corporal invalida"
+  }
+
+  return return_msg;
+}
+
+//
+// calcula o IMC do paciente
+//
+function calcularImc(peso, altura){
+  var imc = peso / (altura * altura);
+  return imc.toFixed(2);
 }
