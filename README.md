@@ -8,8 +8,11 @@
 
 ### O que foi utilizado
 > ***HTML***
+
 > ***CSS***
+
 > ***javascript***
+
 > Editor *Atom*
 
 ### Como usar
