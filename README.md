@@ -16,6 +16,6 @@
 > Editor *Atom*
 
 ### Como usar
-> `git clone --branch general_fixes https://github.com/EvandroHiga/proj_javascript.git`
+> `git clone https://github.com/EvandroHiga/proj_javascript.git`
 
 > Abra o arquivo *index.html*
