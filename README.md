@@ -7,13 +7,7 @@
 > Implementação de uma tabela HTML dinâmica, onde é possível adicionar novos registros conforme os dados preenchidos no form, deletar os existententes dando um 'double click' e realizar uma busca. Pode ser importada e adaptada conforme a necessidade e/ou utilizada como código de exemplo.
 
 ### O que foi utilizado
-> ***HTML***
-
-> ***CSS***
-
-> ***javascript***
-
-> Editor *Atom*
+> ***HTML***, ***CSS*** e ***javascript***.
 
 ### Como usar
 > `git clone https://github.com/EvandroHiga/proj_javascript.git`
