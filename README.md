@@ -10,5 +10,5 @@
 > HTML, CSS e JavaScript.
 
 **Como usar**
-> 1. CLone o repo: `git clone https://github.com/EvandroHiga/proj_javascript.git`
+> 1. Clone o repo: `git clone https://github.com/EvandroHiga/proj_javascript.git`
 > 2. Abra o arquivo *index.html*.
